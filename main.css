@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.game {
+    display: grid;
+    grid-template-areas:
+        "main map"
+        "main char"
+        "main online"
+        "skill skill"
+        "chat chat";
+    grid-template-columns: 3fr 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+
+.grid-cell {
+    background-color: #aaf7aa;
+    border: 1px solid #a6d6a8;
+}
+
+.game__main-window {
+    grid-area: main;
+    background-color: #b9f2bb;
+    width: 800px;
+    height: 400px;
+}
+
+.game__map-window {
+    grid-area: map;
+    background-color: #e0e7ff;
+    padding: 10px;
+}
+
+.game__char-window {
+    grid-area: char;
+    background-color: #e0f3ff;
+}
+
+.game__online-window {
+    grid-area: online;
+    background-color: #e8f7ff;
+}
+
+.game__skill-bar {
+    grid-area: skill;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    background-color: #d0e4f7;
+}
+
+.game__chat-action-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-area: chat;
+}
+
+.game__chat-window {
+    background-color: #e0f3ff;
+    padding: 15px;
+}
+
+.game__action-bar {
+    background-color: #e0e7ff;
+    padding: 10px;
+}
+
+.game__inventory-window {
+    background-color: #f0f7ff;
+    padding: 10px;
+}
