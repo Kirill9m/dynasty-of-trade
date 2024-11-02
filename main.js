@@ -24,7 +24,7 @@ const mainGameWindow = document.querySelector("#main-game-window");
         const col = getRandomInt(columns);
 
         const tree = new Image(32, 32);
-        tree.src = "/img/tree.png";
+        tree.src = "img/tree.png";
         rand = (`#c${row}r${col}`);
         const cell = document.querySelector(rand);
         if(!(cell.classList.contains('have-tree'))){
