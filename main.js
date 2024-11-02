@@ -33,6 +33,6 @@ const mainGameWindow = document.querySelector("#main-game-window");
         }
     }
 
-    for(let i=0; i < 1000; i++){
+    for(let i=0; i < 10; i++){
         addTree();
     }
