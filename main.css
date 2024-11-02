@@ -27,6 +27,11 @@ body {
     text-align: center;
 }
 
+.game_map {
+    width: 200px;
+    height: 200px;
+}
+
 .game__main-window {
     grid-area: main;
     background-color: #b9f2bb;
@@ -36,8 +41,6 @@ body {
 
 .game__map-window {
     grid-area: map;
-    background-color: #e0e7ff;
-    padding: 10px;
 }
 
 .game__char-window {
