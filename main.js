@@ -19,13 +19,20 @@ const mainGameWindow = document.querySelector("#main-game-window");
        return Math.floor(Math.random() * max) + 1;
     }
 
-    const tree = new Image(32, 32);
-    tree.src = "/img/tree.png";
-
     function addTree() {
         const row = getRandomInt(rows);
         const col = getRandomInt(columns);
+
+        const tree = new Image(32, 32);
+        tree.src = "/img/tree.png";
         rand = (`#c${row}r${col}`);
-        console.log(rand);
-        document.querySelector(rand).appendChild(tree);
+        const cell = document.querySelector(rand);
+        if(!(cell.classList.contains('have-tree'))){
+            cell.classList.add("have-tree");
+            cell.appendChild(tree);
+        }
+    }
+
+    for(let i=0; i < 1000; i++){
+        addTree();
     }
