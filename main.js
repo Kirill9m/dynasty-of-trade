@@ -18,9 +18,9 @@
     const maxMoveDistance = 5;
 
     function preload() {
-        treeImage = loadImage('img/tree.png');
-        houseImage = loadImage('img/house.png');
-        manImage = loadImage('img/man.png');
+        treeImage = loadImage('dynasty-of-trade/img/tree.png');
+        houseImage = loadImage('dynasty-of-trade/img/house.png');
+        manImage = loadImage('dynasty-of-trade/img/man.png');
 
       }
 
