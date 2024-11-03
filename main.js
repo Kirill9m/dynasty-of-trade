@@ -1,5 +1,5 @@
-    const rows = 15;
-    const cols = 30;
+    const rows = 16;
+    const cols = 32;
     const cellSize = 25;
 
     
