@@ -18,9 +18,9 @@
     const maxMoveDistance = 5;
 
     function preload() {
-        treeImage = loadImage('/img/tree.png');
-        houseImage = loadImage('/img/house.png');
-        manImage = loadImage('/img/man.png');
+        treeImage = loadImage('img/tree.png');
+        houseImage = loadImage('img/house.png');
+        manImage = loadImage('img/man.png');
 
       }
 
