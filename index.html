@@ -6,19 +6,19 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Dynasty of Trade</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <meta http-equiv="Content-Security-Policy" content="img-src 'self' data: https://kirill9m.github.io;">
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' href='main.css'>
 </head>
 
 <body>
     <div class="game">
-        <div class="game__main-window" id="main-game-window">
-        </div>
+        <canvas class="game__main-window" id="main-game-window"></canvas>
         <div class="game__map-window">
             <img src="img/map.png" class="game_map" alt="">
         </div>
         <div class="game__char-window">
-            <button class="move_btn">Move</button>
+            <button class="move_btn">Change position</button>
+            <button class="shoot_btn">Speed</button>
+            <!-- <div id="timer">5</div>  -->
         </div>
         <div class="game__online-window">
             Here comes players online window under the players char window
@@ -38,7 +38,7 @@
             Here comes the inventory at the right of chat and action bar
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.1/lib/p5.min.js"></script>
-    <script src='main.js'></script>
+    <script src='script.js'></script>
 </body>
+
 </html>
