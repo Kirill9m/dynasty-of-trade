@@ -10,34 +10,15 @@ const spriteWidth = 575;
 const spriteHeight = 523;
 // 5230px / 10
 let frameX = 0;
-let frameY = 0;
+let frameY = 5;
 let gameFrame = 0;
-let staggerFrame = 0;
-let maxFrameX = 4;
+let staggerFrame = 15;
 
 function animate() {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    // ctx.fillRect(50, 50, 100, 100);
-    // ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);
-    ctx.drawImage(playerImg, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
-    if (gameFrame % staggerFrame == 0) {
-        if(frameY > 0 && frameY <= 2 || frameY >= 6 && frameY <= 7)
-            maxFrameX = 6;
-        if(frameY === 3)
-            maxFrameX = 8;
-        if(frameY === 4)
-            maxFrameX = 10;
-        if(frameY === 5)
-            maxFrameX = 4;
-        if(frameY === 8)
-            maxFrameX = 11;
-        if(frameY === 9)
-            maxFrameX = 3;
-        if (frameX < maxFrameX) {
-            frameX++;
-        } else
-            frameX = 0;
-}
+    let position = Math.floor(gameFrame/staggerFrame) % 6;
+    frameX = spriteWidth * position;
+    ctx.drawImage(playerImg, frameX, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
     gameFrame++;
     requestAnimationFrame(animate);
 };
