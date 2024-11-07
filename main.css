@@ -6,6 +6,13 @@
 
 body {
     font-family: Arial, sans-serif;
+    h1 {
+        font-size: 4rem;
+        color: #000000;
+        box-shadow: #000000;
+        padding: 10px 0 0 100px;
+        
+    }
 }
 
 .game {
@@ -34,7 +41,7 @@ body {
 
 .game__main-window {
     grid-area: main;
-    border: 5px solid black;
+    /* border: 5px solid black; */
     width: 600px;
     height: 600px;
 }

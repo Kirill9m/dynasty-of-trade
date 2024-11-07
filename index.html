@@ -10,12 +10,28 @@
 </head>
 
 <body>
+    <h1>Dog animation:</h1>
     <div class="game">
         <canvas class="game__main-window" id="main-game-window"></canvas>
         <div class="game__map-window">
             <img src="img/map.png" class="game_map" alt="">
         </div>
         <div class="game__char-window">
+            <div class="controls">
+                <label for="animations">Choose state</label>
+                <select id="animations" name = animations>
+                    <option value="idle">Idle</option>
+                    <option value="jump">Jump</option>
+                    <option value="fall">Fall</option>
+                    <option value="run">Run</option>
+                    <option value="dizzy">Dizzy</option>
+                    <option value="sit">Sit</option>
+                    <option value="roll">Roll</option>
+                    <option value="bite">Bite</option>
+                    <option value="ko">KO</option>
+                    <option value="getHit">Gethit</option>
+                </select>
+            </div>
             <button class="move_btn">Change position</button>
             <button class="shoot_btn">Speed</button>
             <!-- <div id="timer">5</div>  -->
