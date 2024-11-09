@@ -19,7 +19,7 @@
         <div class="game__char-window">
             <div class="controls">
                 <label for="animations">Choose state</label>
-                <select id="animations" name = animations>
+                <select id="animations" name="animations">
                     <option value="idle">Idle</option>
                     <option value="jump">Jump</option>
                     <option value="fall">Fall</option>
@@ -33,8 +33,11 @@
                 </select>
             </div>
             <button class="move_btn">Stand</button>
-            <button class="shoot_btn">SpeedDown</button>
-            <!-- <div id="timer">5</div>  -->
+            <button class="shoot_btn">Slow down dog</button>
+            <div>
+                <h2 class="game_speed">Gamespeed: 5</h1>
+                <input type="range" min="0" max="20" value="5" class="slider" id="slider">
+            </div>
         </div>
         <div class="game__online-window">
             Here comes players online window under the players char window
