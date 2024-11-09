@@ -3,10 +3,12 @@ import { backgroundLayer1,
     backgroundLayer3, 
     backgroundLayer4, 
     backgroundLayer5, 
-    playerImg 
+    playerImg,
 } from './images.js';
 
 import { Layer, Enemy } from './gameClasses.js';
+
+export { gameFrame };
 
 /** @type {HTMLCanvasElement} */
 
