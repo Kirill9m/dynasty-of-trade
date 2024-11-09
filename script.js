@@ -9,6 +9,8 @@ const canvas = document.getElementById("main-game-window");
 const ctx = canvas.getContext("2d");
 const CANVAS_WIDTH = canvas.width = 800;
 const CANVAS_HEIGHT = canvas.height = 700;
+const numberOfEmemies = 10;
+const enemiesArray = [];
 
 const playerImg = new Image();
 playerImg.src = "img/shadow_dog.png";
@@ -67,10 +69,18 @@ class Layer {
 
 class Enemy {
     constructor() {
-        this.x = 10;
-        this.y = 100;
+        this.x = Math.random()*canvas.width;
+        this.y = Math.random()*canvas.height;
         this.heigh = 75;
         this.width = 75;
+        this.speed = Math.random() * 4 - 2;
+    }
+    update() {
+        this.x += this.speed;
+        this.y += this.speed;
+    }
+    draw() {
+        ctx.strokeRect(this.x, this.y, this.width, this.heigh);
     }
 }
 
@@ -82,7 +92,9 @@ const layer5 = new Layer(backgroundLayer5, 1);
 
 const gameObjects = [layer1, layer2, layer3, layer4, layer5];
 
-const enemy1 = new Enemy();
+for(let x = 0; x < numberOfEmemies; x++) {
+    enemiesArray.push(new Enemy());
+}
 
 const animationStates = [
     {
@@ -144,9 +156,10 @@ function animate() {
         object.update();
         object.draw();
     });
-    enemy1.x++;
-    enemy1.y++;
-    ctx.fillRect(enemy1.x, enemy1.y, enemy1.width, enemy1.heigh);
+    enemiesArray.forEach(enemy => {
+        enemy.update();
+        enemy.draw();
+    });
     let position = Math.floor(gameFrame / staggerFrame) % spriteAnimations[playerState].loc.length;
     frameX = spriteWidth * position;
     let frameY = spriteAnimations[playerState].loc[position].y;
