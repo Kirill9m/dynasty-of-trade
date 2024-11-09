@@ -8,7 +8,6 @@ const canvas = document.getElementById("main-game-window");
 const ctx = canvas.getContext("2d");
 const CANVAS_WIDTH = canvas.width = 800;
 const CANVAS_HEIGHT = canvas.height = 700;
-let gameSpeed = 5;
 
 const playerImg = new Image();
 playerImg.src = "img/shadow_dog.png";
@@ -28,6 +27,7 @@ const spriteHeight = 523;
 // 5230px / 10
 let gameFrame = 0;
 let staggerFrame = 3;
+let gameSpeed = 5;
 const spriteAnimations = [];
 const animationStates = [
     {
@@ -83,13 +83,21 @@ animationStates.forEach((state, index) => {
     spriteAnimations[state.name] = frames;
 });
 
+let x = 0;
+let x2 = 2400;
+
 function animate() {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    ctx.drawImage(backgroundLayer5, 0, 0);
+    ctx.drawImage(backgroundLayer4, x, 0);
+    ctx.drawImage(backgroundLayer4, x2, 0);
+    if(x < -2400) x = 2400 + x2 - gameSpeed;
+    else x -= gameSpeed;
+    if(x2 < -2400) x2 = 2400 + x - gameSpeed;
+    else x2 -= gameSpeed;
     let position = Math.floor(gameFrame/staggerFrame) % spriteAnimations[playerState].loc.length;
     frameX = spriteWidth * position;
     let frameY = spriteAnimations[playerState].loc[position].y;
-    ctx.drawImage(playerImg, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
+    ctx.drawImage(playerImg, frameX, frameY, spriteWidth, spriteHeight, -30, 100, spriteWidth, spriteHeight);
     gameFrame++;
     requestAnimationFrame(animate);
 };
