@@ -10,13 +10,6 @@ const ctx = canvas.getContext("2d");
 const CANVAS_WIDTH = canvas.width = 800;
 const CANVAS_HEIGHT = canvas.height = 700;
 
-enemy1 = {
-    x: 0,
-    y: 0,
-    width: 200,
-    heigh: 200
-}
-
 const playerImg = new Image();
 playerImg.src = "img/shadow_dog.png";
 const backgroundLayer1 = new Image();
@@ -42,7 +35,7 @@ const spriteAnimations = [];
 const slider = document.querySelector(".slider");
 slider.value = gameSpeed;
 const showGameSpeed = document.querySelector(".game_speed");
-slider.addEventListener('change', function(e){
+slider.addEventListener('change', function (e) {
     console.log(e.target.value);
     gameSpeed = e.target.value;
     showGameSpeed.innerHTML = 'Gamespeed: ' + gameSpeed;
@@ -72,6 +65,15 @@ class Layer {
     }
 }
 
+class Enemy {
+    constructor() {
+        this.x = 10;
+        this.y = 100;
+        this.heigh = 75;
+        this.width = 75;
+    }
+}
+
 const layer1 = new Layer(backgroundLayer1, 0.2);
 const layer2 = new Layer(backgroundLayer2, 0.4);
 const layer3 = new Layer(backgroundLayer3, 0.6);
@@ -79,6 +81,8 @@ const layer4 = new Layer(backgroundLayer4, 0.8);
 const layer5 = new Layer(backgroundLayer5, 1);
 
 const gameObjects = [layer1, layer2, layer3, layer4, layer5];
+
+const enemy1 = new Enemy();
 
 const animationStates = [
     {
@@ -140,10 +144,13 @@ function animate() {
         object.update();
         object.draw();
     });
+    enemy1.x++;
+    enemy1.y++;
+    ctx.fillRect(enemy1.x, enemy1.y, enemy1.width, enemy1.heigh);
     let position = Math.floor(gameFrame / staggerFrame) % spriteAnimations[playerState].loc.length;
     frameX = spriteWidth * position;
     let frameY = spriteAnimations[playerState].loc[position].y;
-    ctx.drawImage(playerImg, frameX, frameY, spriteWidth, spriteHeight, 0, 497, spriteWidth/6, spriteHeight/6);
+    ctx.drawImage(playerImg, frameX, frameY, spriteWidth, spriteHeight, 0, 497, spriteWidth / 6, spriteHeight / 6);
     gameFrame++;
     requestAnimationFrame(animate);
 };
