@@ -1,4 +1,4 @@
-let playerState = 'sit';
+let playerState = 'run';
 const dropdown = document.getElementById('animations');
 dropdown.addEventListener('change', function (e) {
     playerState = e.target.value;
@@ -31,6 +31,15 @@ let staggerFrame = 3;
 let gameSpeed = 5;
 const spriteAnimations = [];
 
+const slider = document.querySelector(".slider");
+slider.value = gameSpeed;
+const showGameSpeed = document.querySelector(".game_speed");
+slider.addEventListener('change', function(e){
+    console.log(e.target.value);
+    gameSpeed = e.target.value;
+    showGameSpeed.innerHTML = 'Gamespeed: ' + gameSpeed;
+});
+
 class Layer {
     constructor(image, speedModifier) {
         this.x = 0;
@@ -59,11 +68,11 @@ class Layer {
     }
 }
 
-const layer1 = new Layer(backgroundLayer1, 0.5);
-const layer2 = new Layer(backgroundLayer2, 0.1);
-const layer3 = new Layer(backgroundLayer3, 0.1);
-const layer4 = new Layer(backgroundLayer4, 0.6);
-const layer5 = new Layer(backgroundLayer5, 0.8);
+const layer1 = new Layer(backgroundLayer1, 0.2);
+const layer2 = new Layer(backgroundLayer2, 0.4);
+const layer3 = new Layer(backgroundLayer3, 0.6);
+const layer4 = new Layer(backgroundLayer4, 0.8);
+const layer5 = new Layer(backgroundLayer5, 1);
 
 const gameObjects = [layer1, layer2, layer3, layer4, layer5];
 
