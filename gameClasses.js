@@ -107,9 +107,9 @@ export class Enemy2 {
         this.curve = Math.random() * 200;
     }
     update() {
-        this.x = this.curve * Math.sin(this.angle * Math.PI / 90) +
+        this.x = this.curve * Math.sin(this.angle * Math.PI / 180) +
             canvas.width / 2 - this.width / 2;
-        this.y = this.curve * Math.cos(this.angle * Math.PI / 270) +
+        this.y = this.curve * Math.cos(this.angle * Math.PI / 180) +
             canvas.height / 2 - this.height / 2;
         this.angle += this.angleSpeed;
         if (this.x + this.width < 0) this.x = canvas.width;
