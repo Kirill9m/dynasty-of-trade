@@ -6,7 +6,7 @@ import { backgroundLayer1,
     playerImg,
 } from './images.js';
 
-import { Layer, Enemy } from './gameClasses.js';
+import { Layer, Enemy1, Enemy2, Enemy4, Enemy3 } from './gameClasses.js';
 
 export { gameFrame };
 
@@ -17,7 +17,7 @@ window.canvas = document.getElementById("main-game-window");
 window.ctx = canvas.getContext("2d");
 const CANVAS_WIDTH = canvas.width = 800;
 const CANVAS_HEIGHT = canvas.height = 700;
-const numberOfEmemies = 10;
+const numberOfEmemies = 1;
 const enemiesArray = [];
 
 const spriteWidth = 575;
@@ -42,7 +42,10 @@ const layer5 = new Layer(backgroundLayer5, 1);
 const gameObjects = [layer1, layer2, layer3, layer4, layer5];
 
 for(let x = 0; x < numberOfEmemies; x++) {
-    enemiesArray.push(new Enemy());
+    enemiesArray.push(new Enemy3());
+    enemiesArray.push(new Enemy4())
+    enemiesArray.push(new Enemy2());
+    enemiesArray.push(new Enemy1());
 }
 
 const animationStates = [
